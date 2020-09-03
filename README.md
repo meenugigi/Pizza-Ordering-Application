@@ -1,4 +1,14 @@
 # Project 3
+
+
+To run Application:
+
+open cmd
+navigate to project folder (on cmd)
+type 'pip install -r requirements.txt'
+type 'python manage.py runserver'
+
+
 This is a web application created using Python and Django.
 
 Note: on running this application using the command 'python manage.py runserver' navigate to "http://127.0.0.1:8000/signup" to begin using the application.
