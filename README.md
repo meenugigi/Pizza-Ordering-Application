@@ -1,5 +1,7 @@
 # Project 3
 
+- Click here for live demo: https://meenupizzaorders.herokuapp.com/signup/
+- Click here for demo video: https://youtu.be/CUViq_XIoeo
 
 To run Application:
 
@@ -47,4 +49,4 @@ Walkthrough of the files created:
 
 
 
-Application Demo Link: https://youtu.be/CUViq_XIoeo
+
