@@ -3,10 +3,10 @@
 
 To run Application:
 
-open cmd
-navigate to project folder (on cmd)
-type 'pip install -r requirements.txt'
-type 'python manage.py runserver'
+- open cmd
+- navigate to project folder (on cmd)
+- type 'pip install -r requirements.txt'
+- type 'python manage.py runserver'
 
 
 This is a web application created using Python and Django.
