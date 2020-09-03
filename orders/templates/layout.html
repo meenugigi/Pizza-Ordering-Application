@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html style="height:100%">
+<head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% load static %}
+ 
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}myapp/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>    
+       <!-- BOOTSTRAP CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+        <!-- BOOTSTRAP JS (Last) -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        
+
+</head>
+        {% block head %}
+        {% endblock %}
+        
+        <title>
+          Project 3: {% block title %}{% endblock %}
+        </title>
+    </head>
+
+    <body class="body">
+<style>
+    
+#one:after {
+  content: "";
+   display: table;
+  clear: both;
+}
+
+#partone {
+  float: left;
+  font-weight: bolder;
+}
+#parttwo {
+  float: right;
+  color: white;
+  font-size: 20px;
+}
+.user {
+  color:  #003399;
+}
+
+.body{
+
+   background: url({% static 'myapp/wallpaperimage.jpg' %});
+  background-size: 1500px,700px;
+}
+#header, #footer{
+    color: #ffd11a;
+    height: 75px;
+  font-size: 60px; 
+  background-color:  #4d1919;
+  text-align: center; 
+}   
+
+#header {
+  font-family: Aladdin Regular;
+}
+
+@font-face {
+  font-family: Aladdin Regular;
+  src: url({% static 'myapp/Aladdin Regular.ttf' %});
+}
+
+
+#footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   font-family: Calibri;
+   width: 100%;
+    font-size: 18px;
+   height: 30px;  
+}
+</style>
+
+<div id="header">
+ Pinnochio’s Pizza & Subs
+ </div> 
+
+
+<div id="one">
+<div id="partone">
+
+        {% if user.is_authenticated %}
+ <b> <h3 class="user">Welcome, {{ user.username }}!</h3></b>
+</div>
+
+  <div id="parttwo">
+    <b>   <a  href="{% url 'index' %}">Home</a> |</b>
+ <b>   <a  href="{% url 'viewmyorders' %}">My orders</a> |</b>
+  <b><a href="{% url 'logout' %}">Logout</a> </b>
+        {% else %}
+      <h4><font color="#000080">  You are not logged in </h4>
+    <b> <a href="{% url 'login' %}">Login</a> </b>
+        {% endif %}
+        
+
+
+</div>
+</div>
+
+<div id="footer">
+  <p>Developed by Meenu Gigi</p>
+</div> 
+
+
+
+
+
+
+  </body>
+        {% block content %}
+        {% endblock %}
+
+
+ 
+</html>

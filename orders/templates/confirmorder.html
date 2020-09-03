@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+    {% load static %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+    
+#confirm {
+  width: 500px;
+  margin-top: 2%;
+  background-color: #4d1919;
+  opacity: 0.8;
+  color: white;
+  margin-left: 32%;
+  font-size: 20px;
+  
+}
+
+#button {
+  width: 500px;
+  height: 50px;
+  font-size: 25px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  margin-left: 32%
+}
+.button {
+  width: 500px;
+  height: 50px;
+  font-size: 25px;
+  background-color: #001a33;
+  color: white;
+  border: none;
+  margin-left: 32%
+
+}
+#button:hover {
+  opacity: 0.9;
+}
+#text {
+  font-family: Comic Sans MS;
+}
+
+
+hr.line {
+  border: 1px solid blue;
+  width: 500px;
+
+
+}
+</style>
+
+
+
+
+	<body class="body">
+		
+ <h2 align="center"><font color="#0073e6"> Checkout </font></h2>
+ <hr class="line"> 
+<div id="confirm"> 
+ 
+               
+                {% for Checkout in Checkout %}
+            <ul id="text"><li type="none">
+              {{ Checkout }}</li></ul>
+                {% endfor %}
+  
+ <h3 align="center">Total: <font color="#0073e6">${{ Total|floatformat:2 }}</font><br> </h3> 
+ <small>{{ orderdate }} </small>    
+ <div id="result"></div>
+ </body>
+<br>
+</div>
+<button id="button" class = "roll" type="submit" onclick="clickCounter()">Confirm</button>
+
+<form action="/payment">
+  <button class = "button" type="submit" name="clicked" id="clicked" onblur="validate()" disabled="true">Pay now</button>
+</form>
+
+
+
+<script>
+$('.roll').on('click',function(){
+  $('.roll').attr('disabled', true);
+  $('#clicked').attr('disabled', false);
+});
+$('#clicked').on('click',function(){
+  $('.roll').attr('disabled', false);
+  $('.clicked').attr('disabled', true);
+});
+</script>
+
+
+
+
+
+
+
+
+<script>
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "Order No:" + localStorage.clickcount + "";
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+</script>
+
+
+<p id="demo"></p>
+
+
+
+
+<script>
+function myFunction() {
+  var txt;
+  if (confirm("Your order has been placed!")) {
+    window.location.href = " / "
+  } else {
+    
+    window.location.href = " / "
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+
+{% endblock %}

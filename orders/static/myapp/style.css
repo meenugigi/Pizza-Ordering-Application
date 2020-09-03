@@ -1,0 +1,121 @@
+  .accordion {
+      width: 50%;
+    }
+
+
+#columnone {
+  float: left;
+  width: 70%;
+  padding: 10px;
+  height: 88vh; 
+ 
+  color: black;
+}
+
+#columntwo {
+    float: left;
+  width: 30%;
+  padding: 10px;
+  height: 90vh; 
+  color: white;
+  font-size: 18px;
+  text-align: right;
+}
+
+#row:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+.card {
+  background-color: #4d1919;
+   opacity: 0.8;
+}
+
+.card-header{
+  height: 60px;
+}
+
+#heading {
+  color: white;
+  
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 20px;
+  padding: 0.01px;
+  margin-left: 15px;
+}
+
+.space {
+  width: 100px;
+  color: white;
+  font-size: 16px;
+}
+.spacesubs {
+   width: 200px;
+   color: white;
+  font-size: 16px;
+}
+
+.image:hover{
+  opacity: 0.5;
+}
+ #title {
+  font-size: 20px;
+  font-family: Comic Sans MS;
+ }
+
+#specialpizza {
+  background-color: #ffd11a;
+  align-content: center;
+  color: #00264d;
+  font-size: 22px;
+  text-align: center;
+  width: 500px;
+  margin-left: 35%;
+}
+
+.blinking{
+  animation:blinkingText 0.8s infinite;
+}
+@keyframes blinkingText{
+  0%{   color: #000;  }
+  49%{  color: transparent; }
+  50%{  color: transparent; }
+  99%{  color:transparent;  }
+  100%{ color: #000;  }
+}
+
+
+#button {
+  width: 180px;
+  height: 50px;
+  font-size: 25px;
+  background-color: #003366;
+  color: white;
+  border: none;
+}
+
+#button:hover {
+  opacity: 0.8;
+}
+
+
+
+hr.line {
+  border: 1px solid blue;
+
+}
+!-----------------------------------------------------------------------------------
+
+#view {
+  width: 900px;
+  margin-top: 5%;
+  background-color: #4d1919;
+  opacity: 0.8;
+  color: white;
+  margin-left: 18%;
+  font-size: 20px;
+  text-align: center;
+}

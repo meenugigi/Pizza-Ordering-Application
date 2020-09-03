@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+
+ {% load static %}
+	
+<style>
+
+#signup {
+  background-color: #4d1919;
+  opacity: 0.8;
+  color: white;
+  font-size: 18px;
+  width: 500px;
+  align-content: center;
+  margin-left: 32%;
+  padding: 2%;
+  margin-bottom: 2%;
+}
+
+#directlogin {
+  text-align: center;
+  color: #0059b3;
+  font-weight: bolder;
+}
+
+</style>
+
+
+
+
+<div id="signup">
+<h2>Sign up Form</h2>
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    <p>
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.help_text %}
+        <small style="color: grey"></small>
+      {% endif %}
+      {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+      {% endfor %}
+    </p>
+  {% endfor %}
+  <button type="submit">Sign up</button>
+</form>
+<br>
+<h5 id="directlogin">Have an account? &nbsp<a href="{% url 'login' %}">Login</a></h5>
+
+</div>
+{% endblock %}

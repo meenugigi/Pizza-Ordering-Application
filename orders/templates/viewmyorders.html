@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+    {% load static %}
+ <link rel = "stylesheet"type = "text/css" href = "static/myapp/style.css" />
+    
+<style>
+#view {
+  width: 900px;
+  margin-top: 5%;
+  background-color: #4d1919;
+  opacity: 0.8;
+  color: white;
+  margin-left: 18%;
+  font-size: 20px;
+  text-align: center;
+}
+</style>
+
+
+	<body class="body">
+	
+<div id="view"> 
+ 	
+  <ul>
+                {% for Checkout in Checkout %}
+            <li type="none">
+              {{ Checkout }} </li>
+                {% endfor %}
+        
+ <br>
+
+</ul></div>
+<ul id="view" class="table table-striped table-condensed">
+
+
+
+
+<script>
+    
+    setInterval(function() {
+        $.ajax({
+            type: "GET",
+            url: {% url 'viewmyorders' %},  // URL to your view that serves new info
+            data: {'append_increment': append_increment}
+           
+            return false;
+        })
+        .done(function(response) {
+            $('#view').append(response);
+            
+        });
+    }, 10000)
+</script>
+
+
+{% endblock %}
